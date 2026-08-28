@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mole Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --surface-bg:#EDE7DC;
+    --surface-ink:#241F19;
+    --subsoil-bg:#C9B79C;
+    --subsoil-ink:#241F19;
+    --clay-bg:#8C6E4E;
+    --clay-ink:#F4EEE2;
+    --bedrock-bg:#221C17;
+    --bedrock-ink:#F0EAdd;
+    --gold:#C9974B;
+    --moss:#5C7A5E;
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--surface-bg);
+    color:var(--surface-ink);
+    line-height:1.5;
+  }
+  a{color:inherit;}
+
+  .layer{
+    position:relative;
+    padding:7rem 8vw 8rem;
+    overflow:hidden;
+  }
+  .layer-inner{
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  .depth{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    opacity:0.65;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    margin-bottom:1.6rem;
+  }
+  .depth::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:currentColor;
+    display:inline-block;
+  }
+
+  h1,h2{
+    font-family:var(--font-display);
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  h1{
+    font-size:clamp(2.4rem, 5.5vw, 4rem);
+    line-height:1.06;
+    max-width:14ch;
+  }
+  h2{
+    font-size:clamp(1.7rem, 3.4vw, 2.4rem);
+    line-height:1.14;
+    margin-bottom:1.4rem;
+    max-width:16ch;
+  }
+  p{ max-width:56ch; }
+  .lede{
+    font-size:1.15rem;
+    margin-top:1.4rem;
+    opacity:0.88;
+  }
+
+  /* HERO — surface */
+  .surface{
+    background:
+      radial-gradient(ellipse 60% 40% at 85% 8%, rgba(92,122,94,0.14), transparent 60%),
+      var(--surface-bg);
+    padding-top:6rem;
+  }
+  .brandmark{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    margin-bottom:3.4rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .brandmark .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .cta-row{
+    margin-top:2.6rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:0.85rem 1.5rem;
+    border-radius:2px;
+    display:inline-block;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--bedrock-bg);
+    color:var(--bedrock-ink);
+  }
+  .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,0.18); }
+  .btn-ghost{
+    color:var(--surface-ink);
+    opacity:0.7;
+    text-underline-offset:3px;
+    text-decoration:underline;
+  }
+
+  /* torn-edge divider between layers */
+  .torn{
+    height:34px;
+    width:100%;
+    display:block;
+    margin-bottom:-1px;
+  }
+
+  /* SUBSOIL — services */
+  .subsoil{ background:var(--subsoil-bg); color:var(--subsoil-ink); }
+  .services{
+    display:grid;
+    gap:2.2rem;
+    margin-top:0.5rem;
+  }
+  .service{
+    border-top:1px solid rgba(36,31,25,0.22);
+    padding-top:1.4rem;
+  }
+  .service h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:1.2rem;
+    margin-bottom:0.5rem;
+  }
+  .service p{ opacity:0.82; font-size:0.98rem; }
+
+  /* CLAY — case study */
+  .clay{ background:var(--clay-bg); color:var(--clay-ink); }
+  .clay .depth{ opacity:0.7; }
+  .case-block{ margin-top:1.6rem; }
+  .case-block h4{
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    opacity:0.75;
+    margin-bottom:0.4rem;
+  }
+  .case-block p{ opacity:0.95; margin-bottom:1.6rem; }
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+    gap:1.6rem;
+    margin-top:2rem;
+    padding-top:1.8rem;
+    border-top:1px solid rgba(244,238,226,0.25);
+  }
+  .stat-num{
+    font-family:var(--font-mono);
+    font-size:1.5rem;
+    color:var(--gold);
+  }
+  .stat-label{
+    font-size:0.82rem;
+    opacity:0.75;
+    margin-top:0.3rem;
+  }
+
+  /* BEDROCK — about + contact */
+  .bedrock{ background:var(--bedrock-bg); color:var(--bedrock-ink); }
+  .bedrock .depth{ color:var(--gold); opacity:0.9; }
+  .bio{ opacity:0.88; margin-top:0.4rem; }
+  .contact-wrap{
+    margin-top:5rem;
+    padding-top:4rem;
+    border-top:1px solid rgba(240,234,221,0.15);
+  }
+  .contact-wrap h2{ max-width:20ch; }
+  .contact-wrap .lede{ opacity:0.8; }
+  .email-link{
+    font-family:var(--font-mono);
+    font-size:1.05rem;
+    color:var(--gold);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+  footer{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    opacity:0.5;
+    margin-top:4.5rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.5rem;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  @media (max-width:600px){
+    .layer{ padding:4.5rem 6vw 5rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="layer surface">
+  <div class="layer-inner">
+    <div class="brandmark"><span class="dot"></span>Mole Data Analytics</div>
+    <div class="depth">Surface</div>
+    <h1>We dig through the busywork<br>so your team doesn't have to.</h1>
+    <p class="lede">Custom software and data analysis for businesses who want their time back — built by someone who spends their days finding structure in complicated things for a living.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:richard.c.c.mole@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="#case-study">See the results</a>
+    </div>
+  </div>
+</section>
+
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,10 L60,16 120,6 180,18 240,8 300,20 360,4 420,14 480,22 540,8 600,16 660,6 720,20 780,10 840,18 900,6 960,16 1020,4 1080,20 1140,10 1200,16 L1200,34 L0,34 Z" fill="#C9B79C"/></svg>
+
+<section class="layer subsoil reveal">
+  <div class="layer-inner">
+    <div class="depth">− 2m · What we build</div>
+    <h2>Software that clears the backlog</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Process automation</h3>
+        <p>Turn a task that eats hours every week into one that runs itself — timetabling, rostering, reporting, anything repetitive and rule-based.</p>
+      </div>
+      <div class="service">
+        <h3>Data analysis &amp; insight</h3>
+        <p>Bring structure to the data you already collect. Understand what's actually driving your results, not just what happened last month.</p>
+      </div>
+      <div class="service">
+        <h3>Small, maintainable tools</h3>
+        <p>No bloated software you don't need. Just something built around how your team already works — often on top of a spreadsheet you already use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,14 L60,4 120,18 180,8 240,20 300,6 360,16 420,4 480,20 540,10 600,18 660,6 720,14 780,4 840,20 900,10 960,16 1020,6 1080,18 1140,8 1200,14 L1200,34 L0,34 Z" fill="#8C6E4E"/></svg>
+
+<section id="case-study" class="layer clay reveal">
+  <div class="layer-inner">
+    <div class="depth">− 6m · Proven in the field</div>
+    <h2>An NHS hospital's rostering, rebuilt</h2>
+    <div class="case-block">
+      <h4>The problem</h4>
+      <p>Every week, staff spent several hours manually building hospital timetables in Excel — checking availability, avoiding clashes, balancing shifts by hand.</p>
+      <h4>The solution</h4>
+      <p>A tool that automates the entire process. Staff still maintain a single, familiar spreadsheet — the schedule now builds itself in seconds.</p>
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">Hours → seconds</div>
+        <div class="stat-label">Weekly build time</div>
+      </div>
+      <div>
+        <div class="stat-num">Zero</div>
+        <div class="stat-label">Manual clash-checking</div>
+      </div>
+      <div>
+        <div class="stat-num">Still running</div>
+        <div class="stat-label">In active use today</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,6 L60,18 120,8 180,20 240,6 300,16 360,4 420,18 480,8 540,20 600,10 660,16 720,4 780,18 840,8 900,20 960,6 1020,16 1080,4 1140,18 1200,8 L1200,34 L0,34 Z" fill="#221C17"/></svg>
+
+<section class="layer bedrock reveal">
+  <div class="layer-inner">
+    <div class="depth">Bedrock · Who's behind it</div>
+    <h2>Richard Mole</h2>
+    <p class="bio">Soon-to-be PhD in particle physics, with years of hands-on programming and data analysis behind it. Research means pulling structure out of enormous, messy datasets every day — the same skill that makes repetitive business processes easy to automate and business data easy to actually understand.</p>
+
+    <div class="contact-wrap">
+      <div class="depth">Get in touch</div>
+      <h2>Got a process that's overdue for automation?</h2>
+      <p class="lede">Tell me what's eating up your team's time, or what's sitting unused in a spreadsheet. I'll tell you honestly whether it's worth building something for it.</p>
+      <p style="margin-top:1.8rem;">
+        <a class="email-link" href="mailto:richard.c.c.mole@gmail.com">richard.c.c.mole@gmail.com</a>
+      </p>
+      <footer>
+        <span>Mole Data Analytics</span>
+        <span>Custom software &amp; data analysis</span>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<script>
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
