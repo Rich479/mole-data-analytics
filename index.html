@@ -20,8 +20,8 @@
     --gold:#C9974B;
     --moss:#5C7A5E;
     --font-display:'Fraunces', serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
+    --font-body:'Helvetica', sans-serif;
+    --font-mono:'helvetica', sans-serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -39,7 +39,7 @@
     overflow:hidden;
   }
   .layer-inner{
-    max-width:760px;
+    max-width:1000px;
     margin:0 auto;
   }
 
@@ -54,7 +54,7 @@
     gap:0.6rem;
     margin-bottom:1.6rem;
   }
-  .depth::before{
+  .depth::before{ 
     content:"";
     width:22px;
     height:1px;
@@ -70,13 +70,13 @@
   h1{
     font-size:clamp(2.4rem, 5.5vw, 4rem);
     line-height:1.06;
-    max-width:14ch;
+    max-width:30ch;
   }
   h2{
     font-size:clamp(1.7rem, 3.4vw, 2.4rem);
     line-height:1.14;
     margin-bottom:1.4rem;
-    max-width:16ch;
+    max-width:20ch;
   }
   p{ max-width:56ch; }
   .lede{
@@ -173,7 +173,7 @@
     letter-spacing:0.1em;
     text-transform:uppercase;
     opacity:0.75;
-    margin-bottom:0.4rem;
+    margin-bottom:1.2rem;
   }
   .case-block p{ opacity:0.95; margin-bottom:1.6rem; }
   .stats{
@@ -238,7 +238,7 @@
     html{ scroll-behavior:auto; }
   }
 
-  @media (max-width:600px){
+  @media (max-width:1000px){
     .layer{ padding:4.5rem 6vw 5rem; }
   }
 </style>
@@ -248,9 +248,8 @@
 <section class="layer surface">
   <div class="layer-inner">
     <div class="brandmark"><span class="dot"></span>Mole Data Analytics</div>
-    <div class="depth">Surface</div>
-    <h1>We dig through the busywork<br>so your team doesn't have to.</h1>
-    <p class="lede">Custom software and data analysis for businesses who want their time back — built by someone who spends their days finding structure in complicated things for a living.</p>
+    <h1>Helping you automate the tasks<br>costing your team time.</h1>
+    <p class="lede">Custom software and data analysis designed for your specific need — built by someone who spends their days building code for and analysing data from the Large Hadron Colider.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:rm@moledataanalytics.com">Get in touch</a>
       <a class="btn btn-ghost" href="#case-study">See the results</a>
@@ -258,40 +257,44 @@
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,10 L60,16 120,6 180,18 240,8 300,20 360,4 420,14 480,22 540,8 600,16 660,6 720,20 780,10 840,18 900,6 960,16 1020,4 1080,20 1140,10 1200,16 L1200,34 L0,34 Z" fill="#C9B79C"/></svg>
+<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,10 L60,16 120,6 180,18 240,8 300,20 360,4 420,14 480,22 540,8 600,16 660,6 720,20 780,10 840,18 900,6 960,16 1020,4 1080,20 1140,10 1200,16 L1200,34 L0,34 Z" fill="#C9B79C"/></svg>
 
 <section class="layer subsoil reveal">
   <div class="layer-inner">
-    <div class="depth">− 2m · What we build</div>
-    <h2>Software that clears the backlog</h2>
+    <div class="depth">What we build</div>
+    <h2>Software that supplements you and your staff</h2>
     <div class="services">
       <div class="service">
         <h3>Process automation</h3>
-        <p>Turn a task that eats hours every week into one that runs itself — timetabling, rostering, reporting, anything repetitive and rule-based.</p>
+        <p>Turn a task that eats hours every week into the easiest task in your week — any repetitive task be it timetabling, rostering, reporting or data management.</p>
       </div>
       <div class="service">
         <h3>Data analysis &amp; insight</h3>
-        <p>Bring structure to the data you already collect. Understand what's actually driving your results, not just what happened last month.</p>
+        <p>If you have a large dataset that you don't know how to interpret. We can help you understand what's actually underpinning your results.</p>
       </div>
       <div class="service">
         <h3>Small, maintainable tools</h3>
-        <p>No bloated software you don't need. Just something built around how your team already works — often on top of a spreadsheet you already use.</p>
+        <p>No new, bloated software for you and your team to learn. Just a simple programme built on top of what you already use — we can use the excel spreadsheets you already maintain.</p>
+      </div>
+      <div class="service">
+        <h3>Data protection</h3>
+        <p>You don't have to worry about your companies personal data being sent to any external third party. Your custom programme can run entirely on your local hardware.</p>
       </div>
     </div>
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,14 L60,4 120,18 180,8 240,20 300,6 360,16 420,4 480,20 540,10 600,18 660,6 720,14 780,4 840,20 900,10 960,16 1020,6 1080,18 1140,8 1200,14 L1200,34 L0,34 Z" fill="#8C6E4E"/></svg>
+<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,14 L60,4 120,18 180,8 240,20 300,6 360,16 420,4 480,20 540,10 600,18 660,6 720,14 780,4 840,20 900,10 960,16 1020,6 1080,18 1140,8 1200,14 L1200,34 L0,34 Z" fill="#8C6E4E"/></svg>
 
 <section id="case-study" class="layer clay reveal">
   <div class="layer-inner">
-    <div class="depth">− 6m · Proven in the field</div>
+    <div class="depth">A case study</div>
     <h2>An NHS hospital's rostering, rebuilt</h2>
     <div class="case-block">
       <h4>The problem</h4>
       <p>Every week, staff spent several hours manually building hospital timetables in Excel — checking availability, avoiding clashes, balancing shifts by hand.</p>
       <h4>The solution</h4>
-      <p>A tool that automates the entire process. Staff still maintain a single, familiar spreadsheet — the schedule now builds itself in seconds.</p>
+      <p>A tool that automates the entire process. Staff still maintain their familiar spreadsheets and the schedule now builds itself in seconds.</p>
     </div>
     <div class="stats">
       <div>
@@ -310,13 +313,13 @@
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0,6 L60,18 120,8 180,20 240,6 300,16 360,4 420,18 480,8 540,20 600,10 660,16 720,4 780,18 840,8 900,20 960,6 1020,16 1080,4 1140,18 1200,8 L1200,34 L0,34 Z" fill="#221C17"/></svg>
+<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,6 L60,18 120,8 180,20 240,6 300,16 360,4 420,18 480,8 540,20 600,10 660,16 720,4 780,18 840,8 900,20 960,6 1020,16 1080,4 1140,18 1200,8 L1200,34 L0,34 Z" fill="#221C17"/></svg>
 
 <section class="layer bedrock reveal">
   <div class="layer-inner">
-    <div class="depth">Bedrock · Who's behind it</div>
+    <div class="depth">Who's behind it</div>
     <h2>Richard Mole</h2>
-    <p class="bio">Soon-to-be PhD in particle physics, with years of hands-on programming and data analysis behind it. Research means pulling structure out of enormous, messy datasets every day — the same skill that makes repetitive business processes easy to automate and business data easy to actually understand.</p>
+    <p class="bio">Soon-to-be PhD in particle physics working on the large hadron colider at CERN, with the years of hands-on programming and data analysis behind it. In my research I look for physics beyone what we know from enormous, messy datasets every day — these same skills make automating your repetitive business processes and understanding your business data easy.</p>
 
     <div class="contact-wrap">
       <div class="depth">Get in touch</div>
