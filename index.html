@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mole Data Analytics</title>
+<!-- FAVICON: paste your favicon file's URL into the href below when it's ready -->
+<link rel="icon" type="image/png" href="PASTE_YOUR_FAVICON_URL_HERE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -241,6 +243,129 @@
   @media (max-width:1000px){
     .layer{ padding:4.5rem 6vw 5rem; }
   }
+
+  /* LinkedIn link */
+  .linkedin-link{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-top:1.4rem;
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    letter-spacing:0.04em;
+    color:var(--gold);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+    width:fit-content;
+  }
+  .linkedin-link:hover{ opacity:0.85; }
+
+  /* Footer legal links */
+  .footer-legal{
+    background:none;
+    border:none;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:inherit;
+    opacity:0.7;
+    text-decoration:underline;
+    cursor:pointer;
+    padding:0;
+  }
+  .footer-legal:hover{ opacity:1; }
+
+  /* Cookie consent banner */
+  #cookie-banner{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:1000;
+    background:var(--bedrock-bg);
+    color:var(--bedrock-ink);
+    padding:1.2rem 6vw;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 -6px 24px rgba(0,0,0,0.25);
+    transform:translateY(110%);
+    transition:transform 0.4s ease;
+  }
+  #cookie-banner.visible{ transform:translateY(0); }
+  #cookie-banner p{
+    max-width:60ch;
+    font-size:0.88rem;
+    opacity:0.88;
+    margin:0;
+  }
+  #cookie-banner .cookie-actions{
+    display:flex;
+    gap:0.7rem;
+    flex-wrap:wrap;
+  }
+  .btn-sm{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.03em;
+    text-decoration:none;
+    padding:0.6rem 1.1rem;
+    border-radius:2px;
+    border:none;
+    cursor:pointer;
+    display:inline-block;
+  }
+  .btn-sm.accept{ background:var(--gold); color:var(--bedrock-ink); }
+  .btn-sm.reject{ background:transparent; color:var(--bedrock-ink); border:1px solid rgba(240,234,221,0.4); }
+
+  /* Privacy policy modal */
+  #privacy-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:1100;
+    background:rgba(20,17,14,0.72);
+    padding:6vh 5vw;
+    overflow-y:auto;
+  }
+  #privacy-modal.visible{ display:block; }
+  .modal-box{
+    max-width:680px;
+    margin:0 auto;
+    background:var(--surface-bg);
+    color:var(--surface-ink);
+    border-radius:4px;
+    padding:2.6rem clamp(1.4rem,4vw,3rem) 3rem;
+    position:relative;
+  }
+  .modal-box h2{ max-width:none; font-size:1.6rem; margin-bottom:1rem; }
+  .modal-box h3{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    margin-top:1.6rem;
+    margin-bottom:0.5rem;
+  }
+  .modal-box p, .modal-box li{
+    font-size:0.94rem;
+    opacity:0.88;
+    max-width:none;
+    margin-bottom:0.7rem;
+  }
+  .modal-box ul{ padding-left:1.2rem; }
+  .modal-close{
+    position:absolute;
+    top:1.2rem;
+    right:1.2rem;
+    background:none;
+    border:none;
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    cursor:pointer;
+    color:var(--surface-ink);
+    opacity:0.6;
+  }
+  .modal-close:hover{ opacity:1; }
 </style>
 </head>
 <body>
@@ -251,13 +376,13 @@
     <h1>Helping you automate the tasks<br>costing your team time.</h1>
     <p class="lede">Custom software and data analysis designed for your specific need — built by someone who spends their days building code for and analysing data from the Large Hadron Colider.</p>
     <div class="cta-row">
-      <a class="btn btn-ghost" href="#get_in_touch">Get in touch</a>
+      <a class="btn btn-ghost" href="mailto:rm@moledataanalytics.com">Get in touch</a>
       <a class="btn btn-ghost" href="#case-study">See the results</a>
     </div>
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,10 L60,16 120,6 180,18 240,8 300,20 360,4 420,14 480,22 540,8 600,16 660,6 720,20 780,10 840,18 900,6 960,16 1020,4 1080,20 1140,10 1200,16 L1200,34 L0,34 Z" fill="#C9B79C"/></svg>
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><rect x="0" y="0" width="1200" height="34" fill="#EDE7DC"/><path d="M0,10 L60,16 120,6 180,18 240,8 300,20 360,4 420,14 480,22 540,8 600,16 660,6 720,20 780,10 840,18 900,6 960,16 1020,4 1080,20 1140,10 1200,16 L1200,34 L0,34 Z" fill="#C9B79C"/></svg>
 
 <section class="layer subsoil reveal">
   <div class="layer-inner">
@@ -283,7 +408,7 @@
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,14 L60,4 120,18 180,8 240,20 300,6 360,16 420,4 480,20 540,10 600,18 660,6 720,14 780,4 840,20 900,10 960,16 1020,6 1080,18 1140,8 1200,14 L1200,34 L0,34 Z" fill="#8C6E4E"/></svg>
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><rect x="0" y="0" width="1200" height="34" fill="#C9B79C"/><path d="M0,14 L60,4 120,18 180,8 240,20 300,6 360,16 420,4 480,20 540,10 600,18 660,6 720,14 780,4 840,20 900,10 960,16 1020,6 1080,18 1140,8 1200,14 L1200,34 L0,34 Z" fill="#8C6E4E"/></svg>
 
 <section id="case-study" class="layer clay reveal">
   <div class="layer-inner">
@@ -311,13 +436,18 @@
   </div>
 </section>
 
-<svg class="torn" viewBox="0 0 500 34" preserveAspectRatio="none"><path d="M0,6 L60,18 120,8 180,20 240,6 300,16 360,4 420,18 480,8 540,20 600,10 660,16 720,4 780,18 840,8 900,20 960,6 1020,16 1080,4 1140,18 1200,8 L1200,34 L0,34 Z" fill="#221C17"/></svg>
+<svg class="torn" viewBox="0 0 1200 34" preserveAspectRatio="none"><rect x="0" y="0" width="1200" height="34" fill="#8C6E4E"/><path d="M0,6 L60,18 120,8 180,20 240,6 300,16 360,4 420,18 480,8 540,20 600,10 660,16 720,4 780,18 840,8 900,20 960,6 1020,16 1080,4 1140,18 1200,8 L1200,34 L0,34 Z" fill="#221C17"/></svg>
 
 <section id = get_in_touch class="layer bedrock reveal">
   <div class="layer-inner">
     <div class="depth">Who's behind it</div>
     <h2>Richard Mole</h2>
     <p class="bio">Soon-to-be PhD in particle physics working on the large hadron colider at CERN, with the years of hands-on programming and data analysis behind it. In my research I look for physics beyone what we know from enormous, messy datasets every day — these same skills make automating your repetitive business processes and understanding your business data easy.</p>
+    <!-- LINKEDIN: paste your LinkedIn profile URL into the href below -->
+    <a class="linkedin-link" href="PASTE_YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      <span>Connect on LinkedIn</span>
+    </a>
 
     <div class="contact-wrap">
       <h2>Got a process that's overdue for automation?</h2>
@@ -328,10 +458,49 @@
       <footer>
         <span>Mole Data Analytics</span>
         <span>Custom software &amp; data analysis</span>
+        <button class="footer-legal" onclick="openPrivacyModal()">Privacy Policy</button>
       </footer>
     </div>
   </div>
 </section>
+
+<!-- Cookie consent banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie preferences">
+  <p>This site uses only essential local storage to remember your cookie choice. Fonts are loaded from Google Fonts, which may see your IP address when the page loads. See the <button class="footer-legal" style="display:inline;padding:0;" onclick="openPrivacyModal()">Privacy Policy</button> for details.</p>
+  <div class="cookie-actions">
+    <button class="btn-sm reject" onclick="setCookieConsent('rejected')">Reject</button>
+    <button class="btn-sm accept" onclick="setCookieConsent('accepted')">Accept</button>
+  </div>
+</div>
+
+<!-- Privacy policy modal -->
+<div id="privacy-modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closePrivacyModal()" aria-label="Close privacy policy">Close ✕</button>
+    <h2>Privacy Policy</h2>
+    <p>Mole Data Analytics ("we", "us") operates this website. This policy explains what data is collected when you visit and how it's used.</p>
+
+    <h3>What we collect</h3>
+    <p>This site does not use analytics or advertising trackers. The only data handled is:</p>
+    <ul>
+      <li>Your cookie preference (accepted/rejected), stored locally in your browser so we don't ask again.</li>
+      <li>Any information you choose to send us directly by email, such as your name, email address, and the contents of your message.</li>
+    </ul>
+
+    <h3>Third-party services</h3>
+    <p>This page loads typefaces from Google Fonts. Loading a font file means your browser contacts Google's servers directly, which may log your IP address as part of normal web request handling. No advertising or tracking cookies are set by this site itself.</p>
+
+    <h3>How we use your information</h3>
+    <p>Any details you send by email are used solely to respond to your enquiry and are not shared with third parties or used for marketing without your separate consent.</p>
+
+    <h3>Your rights</h3>
+    <p>You can ask us at any time what information we hold about you, ask us to correct it, or ask us to delete it, by emailing <a href="mailto:rm@moledataanalytics.com" style="color:var(--gold);">rm@moledataanalytics.com</a>.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>We may update this policy occasionally. Check back here for the latest version.</p>
+    <p style="opacity:0.6; font-size:0.82rem;">Last updated: September 2026.</p>
+  </div>
+</div>
 
 <script>
   var els = document.querySelectorAll('.reveal');
@@ -345,6 +514,32 @@
   } else {
     els.forEach(function(el){ el.classList.add('in'); });
   }
+
+  // --- Cookie consent ---
+  function setCookieConsent(value){
+    try{ localStorage.setItem('mda_cookie_consent', value); }catch(e){}
+    document.getElementById('cookie-banner').classList.remove('visible');
+  }
+  (function(){
+    var stored = null;
+    try{ stored = localStorage.getItem('mda_cookie_consent'); }catch(e){}
+    if(!stored){
+      var banner = document.getElementById('cookie-banner');
+      setTimeout(function(){ banner.classList.add('visible'); }, 400);
+    }
+  })();
+
+  function openPrivacyModal(){
+    document.getElementById('privacy-modal').classList.add('visible');
+    document.getElementById('privacy-modal').setAttribute('aria-hidden','false');
+  }
+  function closePrivacyModal(){
+    document.getElementById('privacy-modal').classList.remove('visible');
+    document.getElementById('privacy-modal').setAttribute('aria-hidden','true');
+  }
+  document.getElementById('privacy-modal').addEventListener('click', function(e){
+    if(e.target.id === 'privacy-modal'){ closePrivacyModal(); }
+  });
 </script>
 
 </body>
